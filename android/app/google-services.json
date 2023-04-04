@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "141331351353",
+    "project_id": "mpss-2f96c",
+    "storage_bucket": "mpss-2f96c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141331351353:android:e328f8d3daa2e2b7b80ae8",
+        "android_client_info": {
+          "package_name": "com.example.mpss_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141331351353-m3kovqjr9nu8s19phis6d1vv94kgupp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkkYtp9G9roVwxY0frupiCPgbGVmT9omk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141331351353-m3kovqjr9nu8s19phis6d1vv94kgupp1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
