@@ -43,17 +43,25 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _title() {
-    return const Text('Firebase Auth');
+    return const Text('Modernizing public security system');
   }
 
   Widget _entryField(
     String title,
     TextEditingController controller,
+    bool isPassword,
   ) {
     return TextField(
         controller: controller,
+        obscureText: isPassword,
         decoration: InputDecoration(
           labelText: title,
+          contentPadding: const EdgeInsets.all(20),
+          enabledBorder: OutlineInputBorder(
+            borderSide:
+                const BorderSide(width: 3, color: Colors.lime), //<-- SEE HERE
+            borderRadius: BorderRadius.circular(50.0), //<-- SEE HERE
+          ),
         ));
   }
 
@@ -62,10 +70,16 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Widget _submitButton() {
-    return ElevatedButton(
-      onPressed:
-          isLogin ? signInWithEmailAndPassWord : createUserWithEmailAndPassWord,
-      child: Text(isLogin ? 'Login' : 'Register'),
+    return SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: ElevatedButton(
+        onPressed: isLogin
+            ? signInWithEmailAndPassWord
+            : createUserWithEmailAndPassWord,
+        style: ElevatedButton.styleFrom(shape: StadiumBorder()),
+        child: Text(isLogin ? 'Login' : 'Register'),
+      ),
     );
   }
 
@@ -76,16 +90,16 @@ class _LoginPageState extends State<LoginPage> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? 'Register instead' : 'Login instead'),
+      child: Text(
+        isLogin ? 'Register instead' : 'Login instead',
+        style: const TextStyle(fontSize: 15),
+      ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: _title(),
-      ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -94,8 +108,29 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            _entryField('email', _controllerEmail),
-            _entryField('password', _controllerPassword),
+            const Text(
+              "MPSS",
+              style: TextStyle(fontSize: 75),
+            ),
+            const Text(
+              "Ensuring public safety in a better way!",
+              style: TextStyle(fontSize: 15),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              "Please Enter Your Credentials!",
+              style: TextStyle(fontSize: 20),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            _entryField('email', _controllerEmail, false),
+            const SizedBox(
+              height: 20,
+            ),
+            _entryField('password', _controllerPassword, true),
             _errorMessage(),
             _submitButton(),
             _loginOrRegisterButton(),

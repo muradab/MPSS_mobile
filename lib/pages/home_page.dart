@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _title() {
-    return const Text('data');
+    return const Text('Home page');
   }
 
   Widget _userUid() {
@@ -31,6 +31,17 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: _title(),
+        actions: <Widget>[
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: signOut,
+                child: Icon(
+                  Icons.logout,
+                  size: 26.0,
+                ),
+              ))
+        ],
       ),
       body: Container(
         height: double.infinity,
@@ -40,8 +51,9 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Text('welcome to patrol the city'),
             _userUid(),
-            _signOutButton(),
+            // _signOutButton(),
           ],
         ),
       ),
